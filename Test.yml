@@ -1,13 +1,3 @@
-- name: GitHub Role with Debug and Conditions
-  hosts: localhost
-  gather_facts: false
- 
-  tasks:
-    - name: Clone GitHub Repository
-      git:
-        repo: https://github.com/AGpawar/ansible_TestRepo
-      register: git_clone_output
- 
     - name: Debug Git Clone Output
       debug:
         var: git_clone_output.stdout_lines
