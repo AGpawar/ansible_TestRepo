@@ -1,15 +1,8 @@
- --- 
- - hosts: all
-   tasks:
-  - name: Creates directory
-    file:
-     path: "C:\Users\apaw\{{test1}}"
-     state: directory
-
-
-- hosts: all
-  tasks:
-  - name: Creating an empty file
-    file:
-      path: "C:\Users\apaw\test_file.txt"
-      state: touch
+ ---
+  - name: copy a file to folder
+    host: all
+    tasks:
+      -name: copy file
+       ansible.builtin.copy:
+         src: C:\Users\apaw\asx.txt
+         dest: C:\Users\apaw\Searches
