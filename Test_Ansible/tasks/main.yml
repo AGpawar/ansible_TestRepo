@@ -1,7 +1,10 @@
-  - host: all
-    task:
-    - name: Creating file
-      file:
-       path: "C:\Users\apaw\Test_code\ansible_TestRepo\apawtest_file.txt"
-       state: touch
-       
+---
+- hosts: all
+  tasks:
+  - name: Creating a file with content
+    copy:
+      dest: "C:\Users\apaw\Test_code\ansible_TestRepo\{{test1}}"
+      content: |
+        line 01
+        line 02
+
