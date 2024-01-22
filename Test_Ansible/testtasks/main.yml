@@ -1,7 +1,4 @@
- ---
-  - name: copy a file to folder
-    host: all
-    tasks:
+
       -name: copy file
        ansible.builtin.copy:
          src: C:\Users\apaw\asx.txt
