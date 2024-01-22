@@ -1,9 +1,12 @@
- - name: Creates directory
-   file:
+ --- 
+ - hosts: all
+   tasks:
+  - name: Creates directory
+    file:
      path: "C:\Users\apaw\{{test}}"
      state: directory
 
----
+
 - hosts: all
   tasks:
   - name: Creating an empty file
