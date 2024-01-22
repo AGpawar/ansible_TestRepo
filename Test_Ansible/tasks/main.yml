@@ -1,0 +1,6 @@
+  - name: create folder
+    file:
+       path: C:\Users\apaw\Test_code\ansible_TestRepo/{{apawfolder}} 
+       state: directory
+       delegate_to: localhost
+        
