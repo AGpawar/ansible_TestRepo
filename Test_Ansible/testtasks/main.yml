@@ -3,3 +3,10 @@
      path: "C:\Users\apaw\{{test}}"
      state: directory
 
+---
+- hosts: all
+  tasks:
+  - name: Creating an empty file
+    file:
+      path: "C:\Users\apaw\test_file.txt"
+      state: touch
