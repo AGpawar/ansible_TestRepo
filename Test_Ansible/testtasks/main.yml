@@ -3,7 +3,7 @@
    tasks:
   - name: Creates directory
     file:
-     path: "C:\Users\apaw\{{test}}"
+     path: "C:\Users\apaw\{{test1}}"
      state: directory
 
 
