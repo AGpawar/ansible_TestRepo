@@ -1,5 +1,5 @@
  - name: Creates directory
    file:
-     path: C:\Users\apaw\Test_code\ansible_TestRepo\Test_Ansible\
+     path: "C:\Users\apaw\Test_code\ansible_TestRepo\Test_Ansible\{{test}}"
      state: directory
 
