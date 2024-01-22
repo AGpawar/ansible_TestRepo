@@ -1,0 +1,25 @@
+
+- name: Clone GitHub Repository
+  git:
+    repo: https://github.com/AGpawar/ansible_TestRepo
+    dest: /path/to/clone
+  register: git_clone_output
+
+- name: Debug Git Clone Output
+  debug:
+    var: git_clone_output.stdout_lines
+  register: debug_output
+
+- name: Set Fact based on Debug Output
+  set_fact:
+    parameter_value: "{{ debug_output.stdout_lines[0] }}"  # Adjust this based on your debug output
+
+- name: Execute Task based on Parameter Value
+  debug:
+    msg: "Executing task because parameter_value is {{ parameter_value }}"
+  when: parameter_value == "desired_value"
+
+- name: Skip Task based on Parameter Value
+  debug:
+    msg: "Skipping task because parameter_value is {{ parameter_value }}"
+  when: parameter_value != "desired_value"
