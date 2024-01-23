@@ -1,7 +1,10 @@
-
-      - name: copy file
-        ansible.builtin.copy:
-         src: C:\Users\apaw\asx.txt
-         dest: C:\Users\apaw\Searches
-          roles:
-             - role: "Test_Ansible"
+- name: copy file
+  host: all
+  become: true
+  gather_fact: false
+  ansible.builtin.copy:
+  src: C:\Users\apaw\asx.txt
+  dest: C:\Users\apaw\Searches
+  roles:
+      - role: "Test_Ansible"
+      
