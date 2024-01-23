@@ -1,3 +1,11 @@
-ansible.builtin.copy:
-src: C:\Users\apaw\asx.txt
-dest: C:\Users\apaw\Searches
+- name: directory   
+  file:
+    path: "{{ dest_folder }}"
+    state: directory
+    mode: '0755'
+- name: Copy each file over that matches the given pattern
+  ansible.builtin.copy:
+      src:  ./files/
+      dest: /etc/Searches
+      owner: "apaw"
+      mode: 0600
