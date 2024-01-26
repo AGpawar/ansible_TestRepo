@@ -9,10 +9,10 @@
       dest: /etc/Searches
       owner: "apaw"
       mode: '0600'
- - name: Display contents
+- name: Display contents
       command: cat resolv.conf chdir=/etc
       register: command_output
- - name: Print to console
+- name: Print to console
       debug:
         msg: "{{command_output.stdout}}"
 
