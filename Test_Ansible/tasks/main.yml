@@ -9,8 +9,7 @@
       dest: /etc/Searches
       owner: "apaw"
       mode: 0600
-- name: Display resolv.conf contents
-  command: cat resolv.conf chdir=/etc
+- name: Display contents
       register: command_output
 
 - name: Create your local file 
