@@ -9,6 +9,11 @@
       dest: /etc/Searches
       owner: "apaw"
       mode: 0600
+- name: hostname
+      command: hostname
+      register: command_output
+- name: cat /etc/redhat-release
+      command: cat redhat-release chdir=/etc      
 - name: Create your local file 
   ansible.builtin.file:
       path: "{{ dest_folder }}"
