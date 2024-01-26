@@ -9,16 +9,20 @@
       dest: /etc/Searches
       owner: "apaw"
       mode: 0600
-- name: Display contents
+ - name: Display resolv.conf contents
+      command: cat resolv.conf chdir=/etc
       register: command_output
+ - name: Print to console
+      debug:
+        msg: "{{command_output.stdout}}"
 
-- name: Create your local file 
-  ansible.builtin.file:
-      path: "{{ dest_folder }}"
-      owner: "apaw"
-      mode: 0644
-- name: Print output to file
-  ansible.builtin.copy:
-      content: "{{command_output.stdout}}"
-      dest: /etc/Searches
+#- name: Create your local file 
+#  ansible.builtin.file:
+#      path: "{{ dest_folder }}"
+#      owner: "apaw"
+#      mode: 0644
+#- name: Print output to file
+#  ansible.builtin.copy:
+#      content: "{{command_output.stdout}}"
+#      dest: /etc/Searches
       
