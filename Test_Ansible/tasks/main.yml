@@ -10,12 +10,12 @@
       owner: "apaw"
       mode: 0600
 - name: Create your local file 
-      ansible.builtin.file:
+  ansible.builtin.file:
       path: "{{ dest_folder }}"
       owner: "apaw"
       mode: 0644
 - name: Print output to file
-      ansible.builtin.copy:
+  ansible.builtin.copy:
       content: "{{command_output.stdout}}"
       dest: /etc/Searches
       
