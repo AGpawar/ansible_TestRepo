@@ -24,8 +24,7 @@
 - name: Print to console
   ansible.builtin.debug:
         msg: 
-        - show the deatils "{{command_output.stdout}}"
-
+        - show the deatils 
 #- name: Display content of resolv.conf
 #  hosts: localhost      
 #- name: Display contents
