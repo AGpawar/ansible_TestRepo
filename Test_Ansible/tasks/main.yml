@@ -23,7 +23,7 @@
 #      dest: /etc/Searches
 - name: Print to file
   ansible.builtin.debug:
-      var: command_output.stdout_lines
+      msg: "Hello world!"
 #- name: Display content of resolv.conf
 #  hosts: localhost      
 #- name: Display contents
