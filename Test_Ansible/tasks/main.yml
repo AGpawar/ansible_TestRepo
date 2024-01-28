@@ -16,12 +16,12 @@
       mode: '0644'
 - name: List file and folder in home directory 
   shell: 'ls -l'
-  register: command_output.stdout_lines
+  register: command_output
 #- name: Print output to file
 #  ansible.builtin.copy:
 #      content: command_output.stdout
 #      dest: /etc/Searches
-- name: Print to console
+- name: Print to file
   ansible.builtin.debug:
       var: command_output.stdout_lines
 #- name: Display content of resolv.conf
