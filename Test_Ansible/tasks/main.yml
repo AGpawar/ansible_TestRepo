@@ -12,6 +12,7 @@
 - name: Create your local file 
   ansible.builtin.file:
       path: /etc/Searches/abc.txt
+      state: "touch"
       owner: "apaw"
       mode: '0644'
 - name: List file and folder in home directory 
