@@ -11,7 +11,7 @@
       mode: '0600'
 - name: Create your local file 
   ansible.builtin.file:
-      path: "{{ dest_folder }}"
+      path: /etc/Searches/abc.txt
       owner: "apaw"
       mode: '0644'
 - name: List file and folder in home directory 
