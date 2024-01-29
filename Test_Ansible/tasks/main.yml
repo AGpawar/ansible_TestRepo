@@ -32,10 +32,10 @@
       dest: /etc/Searches/abc.txt
 - name: Register a variable
   ansible.builtin.shell: cat /etc/Searches
-        register: Searches_contents
+  register: Searches_contents
 - name: Use the variable in conditional statement
   ansible.builtin.shell: echo "Searches contains the word my"
-        when: Searches_contents.stdout.find('my') != -1
+      when: Searches_contents.stdout.find('my') != -1
 
 #- name: Append to /etc/Searches
 #  command: cat /home/EUR/apaw/home/test.txt >> /etc/Searches/abc.txt
