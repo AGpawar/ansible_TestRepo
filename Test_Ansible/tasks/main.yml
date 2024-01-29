@@ -30,8 +30,8 @@
   ansible.builtin.copy:
       content: "{{ansible_first_output}}"
       dest: /etc/Searches/abc.txt
--name: Append to /etc/Searches
- command: cat /home/test.txt >> /etc/Searches
+- name: Append to /etc/Searches
+  command: cat /home/test.txt >> /etc/Searches
 
 
 #- name: Display content of resolv.conf
