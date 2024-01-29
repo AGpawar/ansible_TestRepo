@@ -25,7 +25,7 @@
 - name: Print to file
   ansible.builtin.debug:
       msg: "Hello world!"
-      register: ansible_first_output
+  register: ansible_first_output
 - name: Get the output
   ansible.builtin.copy:
       content: "{{ansible_first_output}}"
