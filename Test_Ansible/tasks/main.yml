@@ -34,8 +34,8 @@
   ansible.builtin.shell: cat /etc/Searches/abc.txt
   register: Searches_contents
 - name: Use the variable in conditional statement
-  ansible.builtin.shell: echo "Searches contains the word my"
-  when: Searches_contents.stdout.find('my') != -1
+  ansible.builtin.shell: echo "Searches contains the word he"
+  when: Searches_contents.stdout.find('he') != -1
 
 #- name: Append to /etc/Searches
 #  command: cat /home/EUR/apaw/home/test.txt >> /etc/Searches/abc.txt
