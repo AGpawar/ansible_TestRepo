@@ -36,6 +36,7 @@
 - name: Use the variable in conditional statement
   ansible.builtin.shell: echo "Searches contains the word Hello"
   when: Searches_contents.stdout.find('Hello') != -1
+  
 - name: Get acm instance version
   community.windows.win_file_version:
     path: /etc/Searches/abc.txt
