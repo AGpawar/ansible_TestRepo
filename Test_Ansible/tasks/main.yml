@@ -36,13 +36,22 @@
 - name: Use the variable in conditional statement
   ansible.builtin.shell: echo "Searches contains the word Hello"
   when: Searches_contents.stdout.find('Hello') != -1
-  
-- name: Get message
-  community.windows.win_file_version:
-    path: /etc/Searches/abc.txt
-  register: print_a_msg_about_when_the_folder_created
-    debug:
-        msg: '{{ print a msg about when the folder created }}'
+- name: creates
+- win_file:
+    path: /etc/Searches/
+  register: create
+
+- debug:
+    msg: '{{ Folder_created }}'
+  when: create.changed == false
+
+
+#- name: Get message
+#  community.windows.win_file_version:
+#    path: /etc/Searches/abc.txt
+#  register: print_a_msg_about_when_the_folder_created
+#    debug:
+ #       msg: '{{ print a msg about when the folder created }}'
 
 
 #- name: Append to /etc/Searches
