@@ -39,10 +39,10 @@
 - name: creates
     win_file:
     path: /etc/Searches/
-  register: create
+  register: Folder_create
 
-- debug:
-    msg: "Folder_created"
+  ansible.builtin.debug: debug:
+    msg: "Foldercreated"
   when: create.changed == false
 
 
