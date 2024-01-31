@@ -42,7 +42,7 @@
   register: create
 
 - debug:
-    msg: '{{ Folder_created }}'
+    msg: "Folder_created"
   when: create.changed == false
 
 
