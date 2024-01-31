@@ -38,7 +38,7 @@
   when: Searches_contents.stdout.find('Hello') != -1
 - name: creates
     win_file:
-    path: /etc/Searches/
+        path: /etc/Searches/
   register: Folder_create
 
   ansible.builtin.debug: debug:
