@@ -37,7 +37,7 @@
   ansible.builtin.shell: echo "Searches contains the word Hello"
   when: Searches_contents.stdout.find('Hello') != -1
 - name: creates
-- win_file:
+    win_file:
     path: /etc/Searches/
   register: create
 
