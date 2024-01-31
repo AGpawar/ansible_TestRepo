@@ -42,7 +42,7 @@
         path: /etc/Searches/
   register: Folder_create
 - name: Print
-  ansible.builtin.debug: debug:
+  ansible.builtin.debug:
     msg: "Foldercreated"
   when: create.changed == false
 
