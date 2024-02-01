@@ -38,14 +38,14 @@
     - block:
       - name: Printing msg If file was already copied
         ansible.builtin.debug: 
-        msg: "The user file already copy"
+          msg: "The user file already copy"
         when: file_copied is success
       when: file_copied is not changed
 
     - block:
       - name: Printing msg If file was NOT copied
         ansible.builtin.debug: 
-        msg: "The file was not copied"
+          msg: "The file was not copied"
         when: file_copied is failed
       when: file_copied is not changed
 
