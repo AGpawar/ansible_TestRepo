@@ -14,6 +14,13 @@
   ansible.builtin.debug: 
       msg: "The user file already copy"
   when: file_copied is succeeded
+- name: Run the command if "file_copied" is true
+  ansible.builtin.shell: echo "file_copied is changed!"
+  when: file_copied is changed
+- name: Run the command if "file_copied" is false
+  ansible.builtin.shell: echo "File_copied is not changed!"
+  when: file_copied is not changed
+
 
 - name: Create your local file 
   ansible.builtin.file:
