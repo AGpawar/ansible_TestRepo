@@ -25,11 +25,15 @@
 - name: Print to file
   ansible.builtin.debug:
       msg: "Hello world!"
-  register: ansible_first_output
+  register: ansible_first_output 
 - name: Get the output
   ansible.builtin.copy:
       content: "{{ansible_first_output}}"
       dest: /etc/Searches/abc.txt
+- name: file copy
+  ansible.builtin.debug:
+      msg: "copying file done"
+  register: Copying_File_done            
 - name: Register a variable
   ansible.builtin.shell: cat /etc/Searches/abc.txt
   register: Searches_contents
