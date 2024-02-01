@@ -9,7 +9,7 @@
       dest: /etc/Searches
       owner: "apaw"
       mode: '0600'
-      register: file_copied
+  register: file_copied
 - name: show message if file was copied
   ansible.builtin.debug: 
       msg: "The user file already copy"
