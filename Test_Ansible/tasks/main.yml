@@ -9,6 +9,12 @@
       dest: /etc/Searches
       owner: "apaw"
       mode: '0600'
+      register: file_copied
+- name: show message if file was copied
+  ansible.builtin.debug: 
+      msg: "The user file already copy"
+  when: file_copied is succeeded
+
 - name: Create your local file 
   ansible.builtin.file:
       path: /etc/Searches/abc.txt
@@ -30,10 +36,8 @@
   ansible.builtin.copy:
       content: "{{ansible_first_output}}"
       dest: /etc/Searches/abc.txt
-- name: show message if file was copied
-  ansible.builtin.debug: 
-      msg: "The user file already copy"
-  when: file_copied is succeeded  
+
+
 #- name: file copy
 #  ansible.builtin.debug:
 #      msg: "copying file done"
