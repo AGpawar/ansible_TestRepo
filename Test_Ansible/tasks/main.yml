@@ -33,11 +33,12 @@
 - name: Register a variable
   ansible.builtin.shell: cat /etc/Searches/abc.txt
   register: Searches_contents
-- name: condition check
-  ansible.builtin.shell: 
-     msg: "Searches_contains_the_word_Hello"
-  when: Searches_contents.stdout.find('Hello') != -1
   
+#- name: condition check
+#  ansible.builtin.shell: 
+#     msg: "Searches_contains_the_word_Hello"
+#  when: Searches_contents.stdout.find('Hello') != -1
+
 #- name: Creates Folder
 #    win_file:
 #        path: /etc/Searches/
