@@ -18,6 +18,7 @@
     path: "{{ dest_folder }}"
     state: directory
     mode: '0755'
+  register: folder_output 
 
 - name: Copy each file over that matches the given pattern
   ansible.builtin.copy:
@@ -27,58 +28,71 @@
       mode: '0600'
   register: file_copied
 
-# - name: Show All print message using block
-#   block:  
-#     - name: show message if file was copied
-#       ansible.builtin.debug: 
-#        msg: "The user file already copy"
-#   when: file_copied is succeeded
-#     - name: File not copied
-#       ansible.builtin.debug: 
-#        msg: "File not copied"
-#   when: /etc/Searches == file_copied is unsucceeded
-#   become: true
-#   become_user: root
-#   ignore_errors: true
+- name: Executing Block to Print messages about file copy operation
+  block:
+    - name: show message if file was copied
+      ansible.builtin.debug: 
+        msg: "The file was copied"
+      when: file_copied is changed
 
-# - name: Run the command if "file_copied" is true
-#   ansible.builtin.shell: echo "file_copied is changed!"
-#   when: file_copied is changed
+    - block:
+      - name: Printing msg If file was already copied
+        ansible.builtin.debug: 
+        msg: "The user file already copy"
+        when: file_copied is success
+      when: file_copied is not changed
 
-# - name: Run the command if "file_copied" is false
-#   ansible.builtin.shell: echo "File_copied is not changed!"
-#   when: file_copied is not changed
+    - block:
+      - name: Printing msg If file was NOT copied
+        ansible.builtin.debug: 
+        msg: "The file was not copied"
+        when: file_copied is failed
+      when: file_copied is not changed
+
+    - name: File not copied
+      ansible.builtin.debug: 
+         msg: "File not copied"
+  when: folder_output is changed
 
 
-# - name: Create your local file 
-#   ansible.builtin.file:
-#       path: /etc/Searches/abc.txt
-#       state: "touch"
-#       owner: "apaw"
-#       mode: '0644'
+- name: Run the command if "file_copied" is true
+  ansible.builtin.shell: echo "file_copied is changed!"
+  when: file_copied is changed
 
-# - name: List file and folder in home directory 
-#   shell: 'ls -l'
-#   register: command_output
+- name: Run the command if "file_copied" is false
+  ansible.builtin.shell: echo "File_copied is not changed!"
+  when: file_copied is not changed
 
-# - name: Print to file
-#   ansible.builtin.debug:
-#       msg: "Hello world!"
-#   register: ansible_first_output 
 
-# - name: Get the output
-#   ansible.builtin.copy:
-#       content: "{{ansible_first_output}}"
-#       dest: /etc/Searches/abc.txt
+- name: Create your local file 
+  ansible.builtin.file:
+      path: /etc/Searches/abc.txt
+      state: "touch"
+      owner: "apaw"
+      mode: '0644'
 
-# - name: Register a variable
-#   ansible.builtin.shell: cat /etc/Searches/abc.txt
-#   register: Searches_contents
+- name: List file and folder in home directory 
+  shell: 'ls -l'
+  register: command_output
 
-# - name: create folder
-#   ansible.builtin.debug:
-#       msg: "Folder create"
-#   register: Folder_create
+- name: Print to file
+  ansible.builtin.debug:
+      msg: "Hello world!"
+  register: ansible_first_output 
+
+- name: Get the output
+  ansible.builtin.copy:
+      content: "{{ansible_first_output}}"
+      dest: /etc/Searches/abc.txt
+
+- name: Register a variable
+  ansible.builtin.shell: cat /etc/Searches/abc.txt
+  register: Searches_contents
+
+- name: create folder
+  ansible.builtin.debug:
+      msg: "Folder create"
+  register: Folder_create
   
 
 
