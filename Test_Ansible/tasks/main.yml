@@ -30,10 +30,13 @@
   ansible.builtin.copy:
       content: "{{ansible_first_output}}"
       dest: /etc/Searches/abc.txt
-- name: file copy
-  ansible.builtin.debug:
-      msg: "copying file done"
-  register: Copying_File_done            
+name: Print a message when file was copied using when condition in ansible
+    ansible.builtin.command: /etc/Searches/abc.txt
+    when: File copy succeeded   
+#- name: file copy
+#  ansible.builtin.debug:
+#      msg: "copying file done"
+#  register: Copying_File_done            
 - name: Register a variable
   ansible.builtin.shell: cat /etc/Searches/abc.txt
   register: Searches_contents
