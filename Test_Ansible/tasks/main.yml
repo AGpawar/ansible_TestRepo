@@ -54,10 +54,7 @@
 - name: List file and folder in home directory 
   shell: 'ls -l'
   register: command_output
-#- name: Print output to file
-#  ansible.builtin.copy:
-#      content: command_output.stdout
-#      dest: /etc/Searches
+
 - name: Print to file
   ansible.builtin.debug:
       msg: "Hello world!"
@@ -68,23 +65,12 @@
       dest: /etc/Searches/abc.txt
 
 
-#- name: file copy
-#  ansible.builtin.debug:
-#      msg: "copying file done"
-#  register: Copying_File_done            
+           
 - name: Register a variable
   ansible.builtin.shell: cat /etc/Searches/abc.txt
   register: Searches_contents
   
-#- name: condition check
-#  ansible.builtin.shell: 
-#     msg: "Searches_contains_the_word_Hello"
-#  when: Searches_contents.stdout.find('Hello') != -1
 
-#- name: Creates Folder
-#    win_file:
-#        path: /etc/Searches/
-#  register: Folder_create
 - name: create folder
   ansible.builtin.debug:
       msg: "Folder create"
