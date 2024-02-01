@@ -23,20 +23,6 @@
   become: true
   become_user: root
   ignore_errors: true
-  
-  
-
-#- name: Show All print message using block
-#  block:
-#    - name: File copied
-#      ansible.builtin.debug: 
-#         msg: "The user file copy"
-#  when: file_copied is succeeded
-    
-#  become: true
-#  become_user: root
-#  ignore_errors: true
-
 - name: Run the command if "file_copied" is true
   ansible.builtin.shell: echo "file_copied is changed!"
   when: file_copied is changed
@@ -63,14 +49,9 @@
   ansible.builtin.copy:
       content: "{{ansible_first_output}}"
       dest: /etc/Searches/abc.txt
-
-
-           
 - name: Register a variable
   ansible.builtin.shell: cat /etc/Searches/abc.txt
   register: Searches_contents
-  
-
 - name: create folder
   ansible.builtin.debug:
       msg: "Folder create"
@@ -78,25 +59,6 @@
   
 
 
-#- name: Get message
-#  community.windows.win_file_version:
-#    path: /etc/Searches/abc.txt
-#  register: print_a_msg_about_when_the_folder_created
-#    debug:
- #       msg: '{{ print a msg about when the folder created }}'
 
-
-#- name: Append to /etc/Searches
-#  command: cat /home/EUR/apaw/home/test.txt >> /etc/Searches/abc.txt
-
-
-#- name: Display content of resolv.conf2
-#  hosts: localhost      
-#- name: Display contents
-#      command: cat resolv.conf chdir=/etc
-#      register: command_output
-#- name: Print to console
-#      debug:
-#        msg: "{{command_outp ut.stdout}}"
 
     
