@@ -10,21 +10,30 @@
       owner: "apaw"
       mode: '0600'
   register: file_copied
-- name: show message if file was copied
-  ansible.builtin.debug: 
-      msg: "The user file already copy"
-  when: file_copied is succeeded
 
 - name: Show All print message using block
-  block:
-    - name: File copied
-      ansible.builtin.debug: 
-         msg: "The user file already copy"
+  block:  
+     - name: show message if file was copied
+       ansible.builtin.debug: 
+           msg: "The user file already copy"
   when: file_copied is succeeded
+  
     - name: File not copied
       ansible.builtin.debug: 
          msg: "File not copied"
   when: file_copied is unsucceeded
+
+
+#- name: Show All print message using block
+#  block:
+#    - name: File copied
+#      ansible.builtin.debug: 
+#         msg: "The user file copy"
+#  when: file_copied is succeeded
+    
+#  become: true
+#  become_user: root
+#  ignore_errors: true
 
 - name: Run the command if "file_copied" is true
   ansible.builtin.shell: echo "file_copied is changed!"
