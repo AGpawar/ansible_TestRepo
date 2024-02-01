@@ -22,7 +22,11 @@
   ansible.builtin.debug: 
        msg: "File not copied"
   when: /etc/Searches == file_copied is unsucceeded
-
+  become: true
+  become_user: root
+  ignore_errors: true
+  
+  
 
 #- name: Show All print message using block
 #  block:
