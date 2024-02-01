@@ -3,6 +3,7 @@
     path: "{{ dest_folder }}"
     state: directory
     mode: '0755'
+
 - name: Copy each file over that matches the given pattern
   ansible.builtin.copy:
       src:  ./files/
@@ -10,6 +11,7 @@
       owner: "apaw"
       mode: '0600'
   register: file_copied
+
 - name: Show All print message using block
   block:  
     - name: show message if file was copied
@@ -23,9 +25,11 @@
   become: true
   become_user: root
   ignore_errors: true
+
 - name: Run the command if "file_copied" is true
   ansible.builtin.shell: echo "file_copied is changed!"
   when: file_copied is changed
+
 - name: Run the command if "file_copied" is false
   ansible.builtin.shell: echo "File_copied is not changed!"
   when: file_copied is not changed
@@ -37,6 +41,7 @@
       state: "touch"
       owner: "apaw"
       mode: '0644'
+
 - name: List file and folder in home directory 
   shell: 'ls -l'
   register: command_output
@@ -45,13 +50,16 @@
   ansible.builtin.debug:
       msg: "Hello world!"
   register: ansible_first_output 
+
 - name: Get the output
   ansible.builtin.copy:
       content: "{{ansible_first_output}}"
       dest: /etc/Searches/abc.txt
+
 - name: Register a variable
   ansible.builtin.shell: cat /etc/Searches/abc.txt
   register: Searches_contents
+  
 - name: create folder
   ansible.builtin.debug:
       msg: "Folder create"
