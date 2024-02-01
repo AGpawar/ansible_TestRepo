@@ -16,12 +16,12 @@
      - name: show message if file was copied
        ansible.builtin.debug: 
            msg: "The user file already copy"
-  when: file_copied is succeeded
+  when: /etc/Searches == file_copied is succeeded
   
     - name: File not copied
       ansible.builtin.debug: 
          msg: "File not copied"
-  when: file_copied is unsucceeded
+  when: /etc/Searches == file_copied is unsucceeded
 
 
 #- name: Show All print message using block
