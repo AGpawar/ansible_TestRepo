@@ -1,3 +1,12 @@
+- name: Print VM OS
+  ansible.builtin.debug:
+    msg: "This is a Windows VM"
+  when: (ansible_distribution == "Microsoft Windows Server 2016 Standard")
+- name: Print VM OS
+  ansible.builtin.debug:
+    msg: "This is a Linux VM"
+  when: (ansible_distribution == "RedHat")
+
 - name: directory   
   file:
     path: "{{ dest_folder }}"
@@ -59,7 +68,7 @@
 - name: Register a variable
   ansible.builtin.shell: cat /etc/Searches/abc.txt
   register: Searches_contents
-  
+
 - name: create folder
   ansible.builtin.debug:
       msg: "Folder create"
