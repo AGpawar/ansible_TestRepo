@@ -30,9 +30,10 @@
   ansible.builtin.copy:
       content: "{{ansible_first_output}}"
       dest: /etc/Searches/abc.txt
-- name: Print a message when file was copied using when condition in ansible
-  ansible.builtin.command: /etc/Searches/abc.txt
-  when: File copy succeeded   
+- name: show message if file was copied
+      debug:
+        msg: The user file already copy.
+  when: file_copied is succeeded  
 #- name: file copy
 #  ansible.builtin.debug:
 #      msg: "copying file done"
