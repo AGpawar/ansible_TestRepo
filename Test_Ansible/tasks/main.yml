@@ -31,7 +31,7 @@
       content: "{{ansible_first_output}}"
       dest: /etc/Searches/abc.txt
 - name: Print a message when file was copied using when condition in ansible
-    ansible.builtin.command: /etc/Searches/abc.txt
+  ansible.builtin.command: /etc/Searches/abc.txt
     when: File copy succeeded   
 #- name: file copy
 #  ansible.builtin.debug:
