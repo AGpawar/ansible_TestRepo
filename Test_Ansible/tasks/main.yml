@@ -32,7 +32,7 @@
       dest: /etc/Searches/abc.txt
 - name: show message if file was copied
   ansible.builtin.debug: 
-        msg: The user file already copy.
+      msg: "The user file already copy"
   when: file_copied is succeeded  
 #- name: file copy
 #  ansible.builtin.debug:
