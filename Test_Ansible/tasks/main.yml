@@ -31,7 +31,7 @@
       content: "{{ansible_first_output}}"
       dest: /etc/Searches/abc.txt
 - name: show message if file was copied
-      debug:
+  ansible.builtin.debug: 
         msg: The user file already copy.
   when: file_copied is succeeded  
 #- name: file copy
